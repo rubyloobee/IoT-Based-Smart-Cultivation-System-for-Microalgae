@@ -271,13 +271,21 @@ IoT-Based-Smart-Cultivation-System-for-Microalgae/
 ### Required Libraries
 
 DallasTemperature
+
 OneWire
+
 BH1750
+
 DFRobot_PH
+
 DFRobot_EC
+
 PubSubClient
+
 Adafruit ADS1X15
+
 Adafruit TCS34725
+
 Adafruit NeoPixel
 
 ### Upload Firmware
@@ -381,9 +389,7 @@ pip install picamera2
 ### Communication
 
 ✅ MQTT bidirectional communication
-
 ✅ Multi-node architecture
-
 ✅ Scalable topic structure
 
 ---
