@@ -1,102 +1,165 @@
-# IoT-Based Smart Cultivation System for Microalgae
+# 🌱 IoT-Based Smart Cultivation System for Microalgae
 
-An end-to-end Internet of Things (IoT) platform for automated microalgae cultivation, integrating multi-sensor monitoring, cloud databases, automated control systems, image monitoring, anomaly detection, and a Flutter mobile application.
+An end-to-end Internet of Things (IoT) platform for automated microalgae cultivation, integrating environmental monitoring, automated control systems, cloud databases, image monitoring, anomaly detection, and a Flutter mobile application.
 
-This project was developed as part of a final-year Electrical & Electronic Engineering project in collaboration with Algae International Berhad (AIB), demonstrating a low-cost and scalable architecture for smart microalgae cultivation.
+Developed as a Final Year Engineering Project in collaboration with **Algae International Berhad (AIB)**, this system demonstrates a scalable and low-cost architecture for smart microalgae cultivation using ESP32, Raspberry Pi, MQTT, Firebase, and Flutter technologies.
+
+---
+
+## Project Highlights
+
+✅ 7 Environmental Sensors Integrated
+
+✅ 6 Automated Actuator Subsystems
+
+✅ MQTT-Based Real-Time Communication
+
+✅ Raspberry Pi Edge Processing
+
+✅ Firebase Cloud Synchronisation
+
+✅ SQLite Local Database Backup
+
+✅ Flutter Mobile Application
+
+✅ Camera-Based Remote Monitoring
+
+✅ Automated Nutrient Dosing & Harvesting
+
+✅ Multi-System Scalable Architecture
+
+---
+
+# System Overview
+
+## Smart Cultivation Platform
+
+![Smart Cultivation Platform](images/system_photo.jpg)
+
+*Complete cultivation system integrating sensing, automation, cloud connectivity, and remote monitoring.*
+
+---
+
+## Mobile Application Dashboard
+
+![Flutter Dashboard](images/flutter_dashboard.png)
+
+*Flutter mobile application for real-time monitoring, historical trend analysis, actuator control, and alert management.*
+
+---
+
+## Four-Layer IoT Architecture
+
+![System Architecture](images/system_architecture.png)
+
+*System architecture showing the interaction between sensing, transport, processing, and application layers.*
+
+---
+
+## Functional Flow
+
+![Functional Flow](images/functional_flow.png)
+
+*End-to-end data flow and control flow throughout the cultivation platform.*
 
 ---
 
 # Project Overview
 
-Microalgae cultivation requires continuous monitoring and control of environmental conditions such as temperature, pH, nutrient concentration, light intensity, and biomass growth. Traditional cultivation methods rely heavily on manual intervention, which can lead to delayed responses, inconsistent operating conditions, and increased labour requirements.
+Microalgae cultivation requires continuous monitoring and control of environmental conditions such as temperature, pH, nutrient concentration, light intensity, and biomass density. Traditional cultivation methods rely heavily on manual intervention, resulting in delayed responses, inconsistent operating conditions, and increased labour requirements.
 
-This project addresses these challenges by implementing a complete IoT ecosystem capable of:
+This project addresses these challenges through the implementation of a complete IoT ecosystem capable of:
 
 * Real-time environmental monitoring
 * Automated actuator control
-* Nutrient dosing and harvesting automation
+* Nutrient dosing automation
+* Harvesting automation
+* Water level regulation
 * Cloud database integration
 * Mobile application monitoring and control
-* Anomaly detection and alert notification
-* Camera-based cultivation monitoring
-* Scalable multi-system deployment
+* Camera-based monitoring
+* Alert notification and anomaly detection
+* Multi-system scalability
 
-The system uses low-cost sensors, ESP32 microcontrollers, Raspberry Pi edge processing, MQTT communication, Firebase cloud services, and Flutter mobile technologies.
+The system employs ESP32 microcontrollers for sensing and control, Raspberry Pi for edge processing, MQTT for communication, Firebase for cloud services, and Flutter for mobile application development.
 
 ---
 
 # Four-Layer IoT Architecture
 
-The proposed system follows a four-layer IoT architecture consisting of:
-
 ## 1. Sensing Layer
 
-Responsible for acquiring environmental data and controlling physical devices.
+Responsible for environmental monitoring and physical device control.
 
 ### Sensors
 
-* Temperature (DS18B20)
-* Water Level (A02YYUW Ultrasonic Sensor)
-* Light Intensity (BH1750)
-* pH (DFRobot SEN0161)
-* Electrical Conductivity (DFRobot DFR0300)
-* Turbidity (DFRobot SEN0189)
-* RGB Colour Density (TCS34725)
+| Sensor          | Function                           |
+| --------------- | ---------------------------------- |
+| DS18B20         | Temperature Monitoring             |
+| A02YYUW         | Water Level Monitoring             |
+| BH1750          | Light Intensity Monitoring         |
+| DFRobot SEN0161 | pH Monitoring                      |
+| DFRobot DFR0300 | Electrical Conductivity Monitoring |
+| DFRobot SEN0189 | Turbidity Monitoring               |
+| TCS34725        | RGB Colour Density Monitoring      |
 
 ### Actuators
 
-* SK6812 RGB LED Light Strip
-* DC Stirrer Motor
-* Nutrient Pump
-* Sampling Pump
-* Harvest Pump
-* Refill Pump
+| Actuator             | Function            |
+| -------------------- | ------------------- |
+| SK6812 RGB LED Strip | Artificial Lighting |
+| DC Stirrer Motor     | Culture Mixing      |
+| Nutrient Pump        | Nutrient Delivery   |
+| Sampling Pump        | Sample Collection   |
+| Harvest Pump         | Biomass Harvesting  |
+| Refill Pump          | Water Replenishment |
 
 ---
 
 ## 2. Transport Layer
 
-Responsible for communication between sensing and processing nodes.
+Responsible for communication between edge devices.
 
-### Communication Technologies
+### Technologies
 
 * WiFi
 * MQTT Protocol
 * Mosquitto MQTT Broker
 
-The ESP32 publishes sensor data to the Raspberry Pi through MQTT topics and receives control commands through dedicated MQTT control topics.
+### Communication Flow
+
+```text
+ESP32 → MQTT → Raspberry Pi
+Raspberry Pi → Firebase Firestore
+Flutter App ↔ Firebase Firestore
+Flutter App → Raspberry Pi → MQTT → ESP32
+```
 
 ---
 
 ## 3. Processing Layer
 
-Implemented on Raspberry Pi.
+Implemented using Raspberry Pi.
 
-Functions include:
+### Responsibilities
 
-* Data processing
-* Automation scheduling
+* Data acquisition
+* Sensor processing
 * MQTT communication
-* Local database storage
+* Database management
 * Cloud synchronisation
-* Anomaly detection
+* Automation scheduling
 * Camera monitoring
-* Actuator decision making
+* Alert generation
+* Anomaly detection
 
 ### Databases
 
-* SQLite (Local Storage)
-* Firebase Firestore (Cloud Storage)
-* Google Cloud Storage (Image Storage)
-
-### Processing Subsystems
-
-* Data Monitoring System
-* Camera Monitoring System
-* Actuator Control System
-* Nutrient Delivery System
-* Harvesting System
-* Alert & Anomaly Detection System
+| Database             | Purpose            |
+| -------------------- | ------------------ |
+| SQLite               | Local Data Storage |
+| Firebase Firestore   | Cloud Database     |
+| Google Cloud Storage | Image Storage      |
 
 ---
 
@@ -104,48 +167,15 @@ Functions include:
 
 Implemented using Flutter.
 
-Features include:
+### Features
 
-* Live sensor monitoring
-* Historical trend visualisation
-* Environmental threshold configuration
-* Manual actuator control
-* Automated control settings
-* Push notifications
-* Camera image viewing
-
----
-
-# System Architecture
-
-Insert architecture image below.
-
-```markdown
-![System Architecture](images/system_architecture.png)
-```
-
----
-
-# Functional Flow
-
-Insert functional flow image below.
-
-```markdown
-![Functional Flow](images/functional_flow.png)
-```
-
-The operational workflow is:
-
-1. ESP32 acquires sensor data.
-2. Sensor readings are calibrated and filtered.
-3. Data is transmitted to Raspberry Pi using MQTT.
-4. Raspberry Pi stores data locally in SQLite.
-5. Data is synchronised to Firebase Firestore.
-6. Flutter application receives real-time updates.
-7. User control commands are written to Firestore.
-8. Raspberry Pi retrieves updates and publishes MQTT control commands.
-9. ESP32 executes actuator actions.
-10. Alerts are generated when abnormal conditions are detected.
+* Real-Time Sensor Dashboard
+* Historical Data Trends
+* Manual Actuator Control
+* Environmental Threshold Configuration
+* Push Notifications
+* Camera Image Viewing
+* Automation Configuration
 
 ---
 
@@ -153,75 +183,125 @@ The operational workflow is:
 
 ## Sensors
 
-| Sensor   | Function                   | Interface   |
-| -------- | -------------------------- | ----------- |
-| DS18B20  | Temperature Monitoring     | One-Wire    |
-| A02YYUW  | Water Level Monitoring     | UART        |
-| BH1750   | Light Intensity Monitoring | I2C         |
-| SEN0161  | pH Monitoring              | ADS1115 ADC |
-| DFR0300  | EC Monitoring              | ADS1115 ADC |
-| SEN0189  | Turbidity Monitoring       | Analog      |
-| TCS34725 | RGB Colour Monitoring      | I2C         |
+| Sensor                   | Interface   |
+| ------------------------ | ----------- |
+| DS18B20                  | One-Wire    |
+| A02YYUW                  | UART        |
+| BH1750                   | I²C         |
+| SEN0161 pH Sensor        | ADS1115 ADC |
+| DFR0300 EC Sensor        | ADS1115 ADC |
+| SEN0189 Turbidity Sensor | Analog      |
+| TCS34725 RGB Sensor      | I²C         |
 
 ---
 
 ## Actuators
 
-| Actuator             | Function                |
-| -------------------- | ----------------------- |
-| SK6812 RGB LED Strip | Artificial Lighting     |
-| DC Stirrer Motor     | Culture Mixing          |
-| Nutrient Pump        | Nutrient Delivery       |
-| Sampling Pump        | Sampling Operation      |
-| Harvest Pump         | Biomass Harvesting      |
-| Refill Pump          | Water Level Maintenance |
+| Actuator         | Function            |
+| ---------------- | ------------------- |
+| SK6812 LED Strip | Artificial Lighting |
+| Stirrer Motor    | Mixing              |
+| Nutrient Pump    | Nutrient Dosing     |
+| Sampling Pump    | Sample Collection   |
+| Harvest Pump     | Harvesting          |
+| Refill Pump      | Water Replenishment |
 
 ---
 
-## Camera
+## Camera System
 
-| Device                  | Function                 |
-| ----------------------- | ------------------------ |
-| Arducam UC-517 (IMX477) | Remote Visual Monitoring |
+| Device                  | Function                      |
+| ----------------------- | ----------------------------- |
+| Arducam UC-517 (IMX477) | Remote Cultivation Monitoring |
 
 ---
 
 # Code Reference Guide
 
-## ESP32 Sensor Testing
+This repository consists of three major software components:
 
-| Component          | Code Reference                |
-| ------------------ | ----------------------------- |
-| Temperature Sensor | Individual sensor test folder |
-| Water Level Sensor | Individual sensor test folder |
-| Light Sensor       | Individual sensor test folder |
-| pH Sensor          | Individual sensor test folder |
-| EC Sensor          | Individual sensor test folder |
-| Turbidity Sensor   | Individual sensor test folder |
-| RGB Sensor         | Individual sensor test folder |
+1. ESP32 Firmware
+2. Raspberry Pi Backend Services
+3. Flutter Mobile Application
 
 ---
 
-## ESP32 Production Firmware
+## ESP32 Firmware
 
-| Folder            | Description                                   |
-| ----------------- | --------------------------------------------- |
-| Final_System      | Final firmware used during project deployment |
-| Final_System_NoBT | Serial Monitor version for debugging          |
+Location:
+
+```text
+ESP32/
+```
+
+### Main Firmware
+
+| Folder                  | Description                          |
+| ----------------------- | ------------------------------------ |
+| ESP32/Final_System      | Final deployment firmware            |
+| ESP32/Final_System_NoBT | Debug version with serial monitoring |
+
+### Individual Hardware Testing Programs
+
+These programs should be used when validating hardware independently before deploying the complete firmware.
+
+| Hardware                   | Folder                           |
+| -------------------------- | -------------------------------- |
+| DS18B20 Temperature Sensor | ESP32/Sensor_Testing/Temperature |
+| A02YYUW Water Level Sensor | ESP32/Sensor_Testing/WaterLevel  |
+| BH1750 Light Sensor        | ESP32/Sensor_Testing/Light       |
+| DFRobot pH Sensor          | ESP32/Sensor_Testing/pH          |
+| DFRobot EC Sensor          | ESP32/Sensor_Testing/EC          |
+| SEN0189 Turbidity Sensor   | ESP32/Sensor_Testing/Turbidity   |
+| TCS34725 RGB Sensor        | ESP32/Sensor_Testing/RGB         |
+| SK6812 LED Strip           | ESP32/Sensor_Testing/LED         |
+| Motor Driver               | ESP32/Sensor_Testing/Motor       |
+| MQTT Communication         | ESP32/Sensor_Testing/MQTT        |
 
 ---
 
-## Raspberry Pi Modules
+## Raspberry Pi Backend
 
-| Module     | Function                     |
-| ---------- | ---------------------------- |
-| MQTT       | MQTT communication           |
-| SQLite     | Local database storage       |
-| Firebase   | Cloud synchronisation        |
-| Scheduler  | Task scheduling              |
-| Alerts     | Notification generation      |
-| Camera     | Image acquisition and upload |
-| Automation | Actuator control logic       |
+Location:
+
+```text
+RaspberryPi/
+```
+
+The Raspberry Pi acts as the edge-processing server.
+
+### Key Services
+
+| File                    | Purpose                         |
+| ----------------------- | ------------------------------- |
+| mqtt_subscriber.py      | Receives sensor data from ESP32 |
+| mqtt_publisher.py       | Sends control commands to ESP32 |
+| sqlite_handler.py       | Local database operations       |
+| firebase_sync.py        | Firestore synchronisation       |
+| scheduler.py            | Scheduled automation tasks      |
+| anomaly_detection.py    | Alert and anomaly detection     |
+| notification_manager.py | Push notification generation    |
+| camera_capture.py       | Image capture and upload        |
+
+---
+
+## Flutter Mobile Application
+
+Location:
+
+```text
+FlutterApp/
+```
+
+### Important Directories
+
+| Folder        | Purpose                       |
+| ------------- | ----------------------------- |
+| lib/screens   | Application pages             |
+| lib/widgets   | Reusable UI components        |
+| lib/services  | Firebase and backend services |
+| lib/models    | Data models                   |
+| assets/images | Application assets            |
 
 ---
 
@@ -236,23 +316,18 @@ IoT-Based-Smart-Cultivation-System-for-Microalgae/
 │   └── Sensor_Testing/
 │
 ├── RaspberryPi/
-│   ├── MQTT/
-│   ├── Firebase/
-│   ├── SQLite/
-│   ├── Scheduler/
-│   ├── Alerts/
-│   ├── Automation/
-│   └── Camera/
 │
 ├── FlutterApp/
-│   ├── lib/
-│   ├── assets/
-│   └── android/
+│
+├── images/
+│   ├── system_photo.jpg
+│   ├── flutter_dashboard.png
+│   ├── system_architecture.png
+│   └── functional_flow.png
 │
 ├── docs/
-│   ├── images/
-│   ├── thesis/
-│   └── handover/
+│   ├── Thesis.pdf
+│   └── Handover_Guide.pdf
 │
 └── README.md
 ```
@@ -263,64 +338,59 @@ IoT-Based-Smart-Cultivation-System-for-Microalgae/
 
 ## ESP32 Setup
 
-### Software Requirements
+### Requirements
 
-* Arduino IDE 2.3.6 or later
+* Arduino IDE 2.3.6+
 * ESP32 Board Package
 
 ### Required Libraries
 
+```text
 DallasTemperature
-
 OneWire
-
 BH1750
-
 DFRobot_PH
-
 DFRobot_EC
-
 PubSubClient
-
 Adafruit ADS1X15
-
 Adafruit TCS34725
-
 Adafruit NeoPixel
+```
 
 ### Upload Firmware
 
-1. Connect ESP32 through USB.
-2. Select board: ESP32 Dev Module
-3. Open: ESP32/Final_System
+1. Connect ESP32 via USB.
+2. Select **ESP32 Dev Module**.
+3. Open:
+
+```text
+ESP32/Final_System
+```
 
 4. Upload firmware.
 
 If upload fails:
+
 1. Press Upload.
 2. Wait until "Connecting..." appears.
-3. Hold BOOT button.
-4. Release once upload begins.
+3. Hold the BOOT button.
+4. Release when upload begins.
 
 ---
 
-# Raspberry Pi Setup
+## Raspberry Pi Setup
 
-## Install Mosquitto MQTT Broker
+### Install MQTT Broker
 
 ```bash
 sudo apt update
-
 sudo apt install -y mosquitto mosquitto-clients
 
 sudo systemctl enable mosquitto
-
 sudo systemctl start mosquitto
 ```
 
-### Configure External Access
-
-Edit:
+### Configure Mosquitto
 
 ```bash
 sudo nano /etc/mosquitto/mosquitto.conf
@@ -333,15 +403,13 @@ listener 1883
 allow_anonymous true
 ```
 
-Restart service:
+Restart:
 
 ```bash
 sudo systemctl restart mosquitto
 ```
 
----
-
-## Install Python Dependencies
+### Install Python Dependencies
 
 ```bash
 pip install paho-mqtt
@@ -352,112 +420,57 @@ pip install picamera2
 
 ---
 
-# Firebase Setup
+## Flutter Application Setup
 
-1. Create Firebase Project.
-2. Enable Firestore Database.
-3. Enable Firebase Cloud Messaging.
-4. Download Service Account JSON key.
-5. Place JSON file inside Raspberry Pi project directory.
+```bash
+flutter pub get
+flutter run
+```
+
+Build Release APK:
+
+```bash
+flutter build apk --release
+```
 
 ---
 
 # System Performance
 
-## Sensor Specifications
-
-| Parameter       | Accuracy |
-| --------------- | -------- |
-| Temperature     | ±0.5 °C  |
-| Water Level     | ±1 cm    |
-| pH              | ±0.1 pH  |
-| EC              | ±5%      |
-| Light Intensity | ±20%     |
-
----
-
-# Key Achievements
-
-### Hardware Integration
-
-✅ 7 environmental sensors integrated
-✅ 6 actuator subsystems integrated
-✅ Camera monitoring subsystem implemented
-
----
-
-### Communication
-
-✅ MQTT bidirectional communication
-✅ Multi-node architecture
-✅ Scalable topic structure
-
----
-
-### Data Infrastructure
-
-✅ SQLite local database
-✅ Firebase Firestore cloud database
-✅ Google Cloud Storage integration
-✅ Store-and-forward synchronisation architecture
-
----
-
-### Automation
-
-✅ Automated nutrient delivery
-✅ Automated harvesting
-✅ Automated water level regulation
-✅ Automated light intensity control
-✅ Automated photoperiod control
-
----
-
-### Mobile Application
-
-✅ Real-time monitoring dashboard
-✅ Historical data visualisation
-✅ Remote actuator control
-✅ Push notification alerts
-
----
-
-### Scalability Demonstration
-
-Two independent cultivation systems were implemented:
-
-**System 1**
-
-* Fully functional cultivation platform
-* All sensors and actuators enabled
-* 
-**System 2**
-
-* Simplified test rig
-* Temperature monitoring only
-* Used to demonstrate scalability of the architecture
+| Metric                   | Performance        |
+| ------------------------ | ------------------ |
+| Temperature Accuracy     | ±0.5 °C            |
+| Water Level Accuracy     | ±1 cm              |
+| pH Accuracy              | ±0.1 pH            |
+| EC Accuracy              | ±5%                |
+| Light Intensity Accuracy | ±20%               |
+| Communication Protocol   | MQTT               |
+| Cloud Database           | Firebase Firestore |
+| Local Database           | SQLite             |
+| Mobile Monitoring        | Supported          |
+| Push Notifications       | Supported          |
+| Offline Data Recovery    | Supported          |
 
 ---
 
 # Future Improvements
 
-* Machine learning growth prediction
-* Biomass estimation modelling
-* Dissolved oxygen monitoring
-* CO₂ monitoring
-* Predictive maintenance algorithms
-* iOS application support
-* Edge AI deployment on Raspberry Pi
+* Machine Learning Growth Prediction
+* Biomass Estimation Models
+* Dissolved Oxygen Monitoring
+* CO₂ Monitoring and Control
+* Predictive Maintenance
+* iOS Application Support
+* Edge AI Deployment on Raspberry Pi
 
 ---
 
 # Author
 
-Bee Loo
-MEng Electrical and Electronic Engineering
+**Bee Loo**
+
+MEng Electrical & Electronic Engineering
+
 University of Nottingham Malaysia
 
-Industry Partner: Algae International Berhad (AIB)
-
----
-
+Industry Partner: **Algae International Berhad (AIB)**
