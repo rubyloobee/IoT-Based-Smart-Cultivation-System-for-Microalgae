@@ -121,7 +121,7 @@ Features include:
 Insert architecture image below.
 
 ```markdown
-![System Architecture](docs/images/system_architecture.png)
+![System Architecture](images/system_architecture.png)
 ```
 
 ---
@@ -131,7 +131,7 @@ Insert architecture image below.
 Insert functional flow image below.
 
 ```markdown
-![Functional Flow](docs/images/functional_flow.png)
+![Functional Flow](images/functional_flow.png)
 ```
 
 The operational workflow is:
