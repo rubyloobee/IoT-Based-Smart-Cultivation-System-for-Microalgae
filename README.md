@@ -397,13 +397,13 @@ Flutter_microalgae\flutter_demo> flutter run
 | Mobile Application         | Functional Test Pass Rate    | 100%                 |
 | Data Monitoring Latency    | Sensor-to-App Update Time    | 181 ms               |
 | Alert Notification Latency | End-to-End Alert Time        | 609 ms               |
-| Actuator Control Latency   | Command Execution Time       | ~1.8 s               |
+| Actuator Control Latency   | Command Execution Time       | 1.8 s                |
 | Camera Monitoring Latency  | Capture and Upload Time      | 3.6 s                |
 | Offline Data Recovery      | Data Synchronisation         | Supported            |
 | Mobile Monitoring          | Remote Access                | Supported            |
 | Push Notifications         | Real-Time Alerts             | Supported            |
 
-```
+
 
 ---
 
