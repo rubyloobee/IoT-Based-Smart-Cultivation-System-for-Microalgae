@@ -44,7 +44,7 @@ Developed as a Final Year Engineering Project in collaboration with **Algae Inte
 
 ![Flutter Dashboard](images/flutter_dashboard.png)
 
-*Flutter mobile application for real-time monitoring, historical trend analysis, actuator control, and alert management.*
+*Flutter mobile application for real-time monitoring, historical trend analysis, actuator control, and user alert.*
 
 ---
 
@@ -68,7 +68,7 @@ Developed as a Final Year Engineering Project in collaboration with **Algae Inte
 
 Microalgae cultivation requires continuous monitoring and control of environmental conditions such as temperature, pH, nutrient concentration, light intensity, and biomass density. Traditional cultivation methods rely heavily on manual intervention, resulting in delayed responses, inconsistent operating conditions, and increased labour requirements.
 
-This project addresses these challenges through the implementation of a complete IoT ecosystem capable of:
+This project addresses these challenges through the implementation of a complete IoT cultivation system capable of:
 
 * Real-time environmental monitoring
 * Automated actuator control
@@ -93,15 +93,25 @@ Responsible for environmental monitoring and physical device control.
 
 ### Sensors
 
-| Sensor          | Function                           |
-| --------------- | ---------------------------------- |
-| DS18B20         | Temperature Monitoring             |
-| A02YYUW         | Water Level Monitoring             |
-| BH1750          | Light Intensity Monitoring         |
-| DFRobot SEN0161 | pH Monitoring                      |
-| DFRobot DFR0300 | Electrical Conductivity Monitoring |
-| DFRobot SEN0189 | Turbidity Monitoring               |
-| TCS34725        | RGB Colour Density Monitoring      |
+**| Sensor          | Function                           | Interface |**
+| --------------- | ---------------------------------- | ----------- |
+| DS18B20         | Temperature Monitoring             | One-Wire    |
+| A02YYUW         | Water Level Monitoring             | UART        |
+| BH1750          | Light Intensity Monitoring         | I²C         |
+| DFRobot SEN0161 | pH Monitoring                      | ADS1115 ADC |
+| DFRobot DFR0300 | Electrical Conductivity Monitoring | ADS1115 ADC |
+| SEN0189         | Turbidity Monitoring               | Analog      |
+| TCS34725        | RGB Colour Density Monitoring      | I²C         |
+
+| Sensor                   | Interface   |
+| ------------------------ | ----------- |
+| DS18B20                  | One-Wire    |
+| A02YYUW                  | UART        |
+| BH1750                   | I²C         |
+| SEN0161 pH Sensor        | ADS1115 ADC |
+| DFR0300 EC Sensor        | ADS1115 ADC |
+| SEN0189 Turbidity Sensor | Analog      |
+| TCS34725 RGB Sensor      | I²C         |
 
 ### Actuators
 
