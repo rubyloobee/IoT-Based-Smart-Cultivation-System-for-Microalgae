@@ -215,7 +215,7 @@ ESP32/
 
 These programs should be used when validating hardware independently before deploying the complete firmware.
 
-| Hardware                                       | Folder                              |
+| Hardware                                       | Folder/File                              |
 | --------------------------                     | ------------------------------------|
 | DS18B20 Temperature Sensor                     | ESP32/Sensor/Temperature_sensor.ino |
 | A02YYUW Ultrasonic Sensor                      | ESP32/Sensor/Ultrasonic_sensor.ino  |
@@ -238,20 +238,21 @@ Location:
 RaspberryPi/
 ```
 
-The Raspberry Pi acts as the edge-processing server.
+### Main Backend Service
 
-### Key Services
+| Folder/File                | Description                                                                 |
+| -------------------------- | --------------------------------------------------------------------------- |
+| RaspberryPi/Final_System   | Final deployment backend integrating MQTT, Firebase, alerts, and automation |
 
-| File                    | Purpose                         |
-| ----------------------- | ------------------------------- |
-| mqtt_subscriber.py      | Receives sensor data from ESP32 |
-| mqtt_publisher.py       | Sends control commands to ESP32 |
-| sqlite_handler.py       | Local database operations       |
-| firebase_sync.py        | Firestore synchronisation       |
-| scheduler.py            | Scheduled automation tasks      |
-| anomaly_detection.py    | Alert and anomaly detection     |
-| notification_manager.py | Push notification generation    |
-| camera_capture.py       | Image capture and upload        |
+### Individual Service Testing Programs
+
+These programs should be used when validating backend services independently before deploying the complete system.
+
+| Service                       | Folder/File                          |
+| ----------------------------- | ------------------------------------ |
+| MQTT Communication            | RaspberryPi/MQTT_Bidirectional       |
+| Firestore Data Upload         | RaspberryPi/upload_to_firestore.py   |
+| Threshold Alert Notifications | RaspberryPi/threshold_alert.py       |
 
 ---
 
@@ -263,44 +264,17 @@ Location:
 FlutterApp/
 ```
 
-### Important Directories
+### Main Application
 
-| Folder        | Purpose                       |
-| ------------- | ----------------------------- |
-| lib/screens   | Application pages             |
-| lib/widgets   | Reusable UI components        |
-| lib/services  | Firebase and backend services |
-| lib/models    | Data models                   |
-| assets/images | Application assets            |
+| Folder     | Description                                                   |
+| ---------- | ------------------------------------------------------------- |
+| FlutterApp | Complete mobile application for system monitoring and control |
 
----
+### Application Source Code
 
-# Repository Structure
-
-```text
-IoT-Based-Smart-Cultivation-System-for-Microalgae/
-
-├── ESP32/
-│   ├── Final_System/
-│   ├── Final_System_NoBT/
-│   └── Sensor_Testing/
-│
-├── RaspberryPi/
-│
-├── FlutterApp/
-│
-├── images/
-│   ├── system_photo.jpg
-│   ├── flutter_dashboard.png
-│   ├── system_architecture.png
-│   └── functional_flow.png
-│
-├── docs/
-│   ├── Thesis.pdf
-│   └── Handover_Guide.pdf
-│
-└── README.md
-```
+| Folder                                 | Purpose                                                                                              |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Flutter_microalgae/flutter_demo/lib    | Contains all application source code, including user interfaces, Firebase integration, data handling |
 
 ---
 
@@ -393,33 +367,43 @@ pip install picamera2
 ## Flutter Application Setup
 
 ```bash
-flutter pub get
-flutter run
-```
-
-Build Release APK:
-
-```bash
-flutter build apk --release
+Flutter_microalgae\flutter_demo> flutter clean
+Flutter_microalgae\flutter_demo> flutter pub get
+Flutter_microalgae\flutter_demo> flutter run
 ```
 
 ---
 
-# System Performance
+## System Performance
 
-| Metric                   | Performance        |
-| ------------------------ | ------------------ |
-| Temperature Accuracy     | ±0.5 °C            |
-| Water Level Accuracy     | ±1 cm              |
-| pH Accuracy              | ±0.1 pH            |
-| EC Accuracy              | ±5%                |
-| Light Intensity Accuracy | ±20%               |
-| Communication Protocol   | MQTT               |
-| Cloud Database           | Firebase Firestore |
-| Local Database           | SQLite             |
-| Mobile Monitoring        | Supported          |
-| Push Notifications       | Supported          |
-| Offline Data Recovery    | Supported          |
+| Category                   | Metric                       | Performance          |
+| -------------------------- | ---------------------------- | -------------------- |
+| Temperature Monitoring     | DS18B20 Sensor Accuracy      | ±0.25 °C             |
+| Water Level Monitoring     | A02YYUW Sensor Accuracy      | ±0.24 cm             |
+| Light Intensity Monitoring | BH1750 Sensor Accuracy       | 4.43% error          |
+| pH Monitoring              | pH Sensor Accuracy           | 0–0.14% error        |
+| EC Monitoring              | EC Sensor Accuracy           | 0.21–1.32% error     |
+| Growth Monitoring          | Turbidity Sensor Correlation | R² = 0.9196          |
+| Growth Monitoring          | RGB Sensor Correlation       | R² = 0.8634          |
+| LED Lighting Control       | Illumination Range           | 0–425 lux            |
+| Stirring Motor Control     | Speed Range                  | 0–200 RPM            |
+| Pump Control               | Maximum Dispensing Volume    | 238 mL (3 s)         |
+| MQTT Communication         | Packet Loss                  | < 1%                 |
+| MQTT Communication         | Latency                      | 116–361 ms           |
+| MQTT Communication         | Throughput                   | Up to 6.8 messages/s |
+| Multi-Node Support         | ESP32 Nodes Tested           | Up to 4 nodes        |
+| Local Database             | SQLite Write Time            | 13.30 ms             |
+| Cloud Database             | Firestore Upload Time        | 169.32 ms            |
+| Mobile Application         | Functional Test Pass Rate    | 100%                 |
+| Data Monitoring Latency    | Sensor-to-App Update Time    | 181 ms               |
+| Alert Notification Latency | End-to-End Alert Time        | 609 ms               |
+| Actuator Control Latency   | Command Execution Time       | ~1.8 s               |
+| Camera Monitoring Latency  | Capture and Upload Time      | 3.6 s                |
+| Offline Data Recovery      | Data Synchronisation         | Supported            |
+| Mobile Monitoring          | Remote Access                | Supported            |
+| Push Notifications         | Real-Time Alerts             | Supported            |
+
+```
 
 ---
 
