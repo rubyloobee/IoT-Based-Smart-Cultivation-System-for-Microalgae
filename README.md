@@ -34,7 +34,7 @@ Developed as a Final Year Engineering Project in collaboration with **Algae Inte
 
 ## Smart Cultivation Platform
 
-![Smart Cultivation Platform](images/system_photo.jepg)
+![Smart Cultivation Platform](images/system_photo.jpeg)
 
 *Complete cultivation system integrating sensing, automation, cloud connectivity, and remote monitoring.*
 
