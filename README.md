@@ -93,7 +93,7 @@ Responsible for environmental monitoring and physical device control.
 
 ### Sensors
 
-**| Sensor          | Function                           | Interface |**
+| Sensor          | Function                           | Interface   |
 | --------------- | ---------------------------------- | ----------- |
 | DS18B20         | Temperature Monitoring             | One-Wire    |
 | A02YYUW         | Water Level Monitoring             | UART        |
@@ -102,16 +102,6 @@ Responsible for environmental monitoring and physical device control.
 | DFRobot DFR0300 | Electrical Conductivity Monitoring | ADS1115 ADC |
 | SEN0189         | Turbidity Monitoring               | Analog      |
 | TCS34725        | RGB Colour Density Monitoring      | I²C         |
-
-| Sensor                   | Interface   |
-| ------------------------ | ----------- |
-| DS18B20                  | One-Wire    |
-| A02YYUW                  | UART        |
-| BH1750                   | I²C         |
-| SEN0161 pH Sensor        | ADS1115 ADC |
-| DFR0300 EC Sensor        | ADS1115 ADC |
-| SEN0189 Turbidity Sensor | Analog      |
-| TCS34725 RGB Sensor      | I²C         |
 
 ### Actuators
 
@@ -123,6 +113,12 @@ Responsible for environmental monitoring and physical device control.
 | Sampling Pump        | Sample Collection   |
 | Harvest Pump         | Biomass Harvesting  |
 | Refill Pump          | Water Replenishment |
+
+### Camera System
+
+| Device                  | Function                      |
+| ----------------------- | ----------------------------- |
+| Arducam UC-517 (IMX477) | Remote Cultivation Monitoring |
 
 ---
 
@@ -189,42 +185,6 @@ Implemented using Flutter.
 
 ---
 
-# Hardware Components
-
-## Sensors
-
-| Sensor                   | Interface   |
-| ------------------------ | ----------- |
-| DS18B20                  | One-Wire    |
-| A02YYUW                  | UART        |
-| BH1750                   | I²C         |
-| SEN0161 pH Sensor        | ADS1115 ADC |
-| DFR0300 EC Sensor        | ADS1115 ADC |
-| SEN0189 Turbidity Sensor | Analog      |
-| TCS34725 RGB Sensor      | I²C         |
-
----
-
-## Actuators
-
-| Actuator         | Function            |
-| ---------------- | ------------------- |
-| SK6812 LED Strip | Artificial Lighting |
-| Stirrer Motor    | Mixing              |
-| Nutrient Pump    | Nutrient Dosing     |
-| Sampling Pump    | Sample Collection   |
-| Harvest Pump     | Harvesting          |
-| Refill Pump      | Water Replenishment |
-
----
-
-## Camera System
-
-| Device                  | Function                      |
-| ----------------------- | ----------------------------- |
-| Arducam UC-517 (IMX477) | Remote Cultivation Monitoring |
-
----
 
 # Code Reference Guide
 
@@ -246,27 +206,27 @@ ESP32/
 
 ### Main Firmware
 
-| Folder                  | Description                          |
-| ----------------------- | ------------------------------------ |
-| ESP32/Final_System      | Final deployment firmware            |
-| ESP32/Final_System_NoBT | Debug version with serial monitoring |
+| Folder                  | Description                               |
+| ----------------------- | ------------------------------------      |
+| ESP32/Final_System      | Final deployment firmware using Bluetooth |
+| ESP32/Final_System_NoBT | Debug version using serial monitor        |
 
 ### Individual Hardware Testing Programs
 
 These programs should be used when validating hardware independently before deploying the complete firmware.
 
-| Hardware                   | Folder                           |
-| -------------------------- | -------------------------------- |
-| DS18B20 Temperature Sensor | ESP32/Sensor_Testing/Temperature |
-| A02YYUW Water Level Sensor | ESP32/Sensor_Testing/WaterLevel  |
-| BH1750 Light Sensor        | ESP32/Sensor_Testing/Light       |
-| DFRobot pH Sensor          | ESP32/Sensor_Testing/pH          |
-| DFRobot EC Sensor          | ESP32/Sensor_Testing/EC          |
-| SEN0189 Turbidity Sensor   | ESP32/Sensor_Testing/Turbidity   |
-| TCS34725 RGB Sensor        | ESP32/Sensor_Testing/RGB         |
-| SK6812 LED Strip           | ESP32/Sensor_Testing/LED         |
-| Motor Driver               | ESP32/Sensor_Testing/Motor       |
-| MQTT Communication         | ESP32/Sensor_Testing/MQTT        |
+| Hardware                                       | Folder                              |
+| --------------------------                     | ------------------------------------|
+| DS18B20 Temperature Sensor                     | ESP32/Sensor/Temperature_sensor.ino |
+| A02YYUW Ultrasonic Sensor                      | ESP32/Sensor/Ultrasonic_sensor.ino  |
+| BH1750 Light Sensor                            | ESP32/Sensor/Light_sensor.ino       |
+| DFRobot pH Sensor                              | ESP32/Sensor/PH_sensor.ino          |
+| DFRobot EC Sensor                              | ESP32/Sensor/EC_sensor.ino          |
+| SEN0189 Turbidity Sensor & TCS34725 RGB Sensor | ESP32/growth_sensors                |
+| SK6812 LED Strip                               | ESP32/Actuator/SK6812               |
+| Motor Driver + DC Motor Stirrer                | ESP32/Actuator/Motor                |
+| Pump                                           | ESP32/Actuator/Pump                 |
+| MQTT Communication                             | ESP32/bidirectional_main            |
 
 ---
 
