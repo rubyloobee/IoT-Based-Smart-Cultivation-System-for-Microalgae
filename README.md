@@ -258,23 +258,17 @@ These programs should be used when validating backend services independently bef
 
 ## Flutter Mobile Application
 
-Location:
-
-```text
-FlutterApp/
-```
-
 ### Main Application
 
 | Folder     | Description                                                   |
 | ---------- | ------------------------------------------------------------- |
-| FlutterApp | Complete mobile application for system monitoring and control |
+| flutter_demo | Complete mobile application for system monitoring and control |
 
 ### Application Source Code
 
 | Folder                                 | Purpose                                                                                              |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Flutter_microalgae/flutter_demo/lib    | Contains all application source code, including user interfaces, Firebase integration, data handling |
+| flutter_demo/lib    | Contains all application source code, including user interfaces, Firebase integration, data handling |
 
 ---
 
@@ -379,9 +373,9 @@ This launches the Raspberry Pi backend services, including MQTT communication, l
 ## Flutter Application Setup
 
 ```bash
-Flutter_microalgae\flutter_demo> flutter clean
-Flutter_microalgae\flutter_demo> flutter pub get
-Flutter_microalgae\flutter_demo> flutter run
+flutter_demo> flutter clean
+flutter_demo> flutter pub get
+flutter_demo> flutter run
 ```
 
 ---
