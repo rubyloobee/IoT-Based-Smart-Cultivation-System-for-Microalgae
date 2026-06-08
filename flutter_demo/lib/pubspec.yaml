@@ -1,0 +1,29 @@
+name: microalgae_system_app # This is the missing line that caused the error!
+description: A mobile app for microalgae cultivation monitoring.
+publish_to: 'none' # Ensures you cannot accidentally publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^3.10.1  # Required for initialization
+  cloud_firestore: ^5.6.1 # Required for your FirestoreService
+  firebase_messaging: ^15.2.1
+  flutter_local_notifications: ^19.2.1
+  rxdart: ^0.28.0
+  firebase_analytics: ^11.4.1
+  ntp: ^2.0.0
+  cupertino_icons: ^1.0.2
+  fl_chart: ^0.70.0
+  intl: ^0.19.0  # Add this line
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

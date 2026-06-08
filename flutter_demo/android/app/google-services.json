@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1037877776343",
+    "firebase_url": "https://smart-microalgae-cultivation-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smart-microalgae-cultivation",
+    "storage_bucket": "smart-microalgae-cultivation.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037877776343:android:dd06757433fdd544504592",
+        "android_client_info": {
+          "package_name": "com.nottingham.EEEmicroalgae"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC05M4wkyfgaTNVIe951ZaZiDc-2znlkGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
