@@ -362,6 +362,18 @@ pip install google-cloud-storage
 pip install picamera2
 ```
 
+### Running the Raspberry Pi Backend
+
+Navigate to the project directory, activate the Python virtual environment, and start the backend service:
+
+```bash
+cd Final_System
+source venv/bin/activate
+python main.py
+```
+
+This launches the Raspberry Pi backend services, including MQTT communication, local/cloud data storage, automation, monitoring, and mobile application integration.
+
 ---
 
 ## Flutter Application Setup
