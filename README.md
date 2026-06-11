@@ -284,6 +284,7 @@ These programs should be used when validating backend services independently bef
 ### Required Libraries
 
 ```text
+ArduinoJson
 DallasTemperature
 OneWire
 BH1750
